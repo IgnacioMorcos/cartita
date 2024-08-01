@@ -112,7 +112,7 @@ body {
 
 #image {
     margin-top: 10px; /* Añade espacio entre el texto y la imagen */
-    width: 50%; /* Ajusta el tamaño de la imagen según sea necesario */
+    width: 30%; /* Ajusta el tamaño de la imagen según sea necesario */
     height: auto; /* Mantén la proporción de la imagen */
     transition: opacity 0.6s;
 }
