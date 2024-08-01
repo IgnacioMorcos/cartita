@@ -1,0 +1,118 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    overflow: hidden;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f9c5c8; /* Rosa claro para el cuerpo del sobre */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.6s, box-shadow 0.6s;
+}
+
+#flap {
+    position: absolute;
+    top: 1.2px; /* Posiciona la solapa en la parte superior del sobre */
+    left: 0;
+    width: 100%;
+    height: 40px; /* Altura de la solapa */
+    background-color: #f48fb1; /* Rosa oscuro para la solapa */
+    clip-path: polygon(0 0, 50% 100%, 100% 0); /* Forma triangular para la solapa */
+    transition: transform 0.6s;
+    transform-origin: top;
+}
+
+#paper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 2px solid #f9c5c8;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.6s;
+    text-align: center;
+    z-index: 0;
+}
+
+#paper h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #f9c5c8;
+}
+
+#paper p {
+    margin: 10px 0 0;
+    font-size: 18px;
+    color: #333;
+}
+
+#heart-container {
+    position: fixed; /* Asegura que el contenedor de corazones esté en toda la pantalla */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Para que los corazones no interfieran con la interacción del usuario */
+    overflow: hidden;
+    z-index: 10;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #e84393;
+    transform: rotate(45deg);
+    animation: float 5s infinite ease-in-out;
+    opacity: 0;
+}
+
+.heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #e84393;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -10px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+#image {
+    margin-top: 10px; /* Añade espacio entre el texto y la imagen */
+    width: 50%; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto; /* Mantén la proporción de la imagen */
+    transition: opacity 0.6s;
+}
